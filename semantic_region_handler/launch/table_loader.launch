@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="semantic_region_handler" type="table_loader.py" name="table_loader" output="screen">
+         <param name="filename" type="string" value="$(find semantic_region_handler)/data/table_list.yaml" />
+    </node>
+</launch>

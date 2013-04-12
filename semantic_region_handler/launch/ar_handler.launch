@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="semantic_region_handler" name="alvar_ar_poller" type="alvar_ar_poller.py"/>
+    <node pkg="semantic_region_handler" name="alvar_ar_handler" type="alvar_ar_handler.py"/>
+</launch>

@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="semantic_region_handler" type="alvar_ar_loader.py" name="alvar_ar_loader" output="screen">
+         <param name="filename" type="string" value="$(find semantic_region_handler)/data/ar_list.yaml" />
+    </node>
+</launch>

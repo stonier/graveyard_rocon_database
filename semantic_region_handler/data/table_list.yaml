@@ -1,0 +1,43 @@
+-  
+  name: table1
+  frame_id: map
+  radius: 0.5
+  pose:
+      position:
+          x: 1
+          y: 5
+          z: 0
+      orientation:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+  
+-
+  name: table2
+  frame_id: map
+  radius: 0.5
+  pose:
+    position:
+      x: 5
+      y: -1
+      z: 0
+    orientation:
+      x: 0
+      y: 0
+      z: 0
+      w: 1
+-
+  name: table3
+  frame_id: map
+  radius: 0.5
+  pose:
+    position:
+      x: 3
+      y: 0
+      z: 0
+    orientation:
+      x: 0
+      y: 0
+      z: 0
+      w: 1

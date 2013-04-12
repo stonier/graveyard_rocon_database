@@ -1,0 +1,5 @@
+<launch>
+    <include file="$(find world_listeners)/launch/spatial_world_model.launch"/>
+    <include file="$(find semantic_region_handler)/launch/table_handler.launch"/>
+    <include file="$(find semantic_region_handler)/launch/ar_handler.launch"/>
+</launch>

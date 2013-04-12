@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package>
+  <name>semantic_region_handler</name>
+  <version>0.0.0</version>
+  <description>The semantic_region_handler package</description>
+
+  <maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
+  <license>BSD</license>
+
+  <!-- <url type="website">http://ros.org/wiki/semantic_region_handler</url> -->
+  <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>world_msgs</build_depend>
+  <build_depend>worldlib</build_depend>
+  <build_depend>ar_track_alvar</build_depend>
+  <build_depend>message_generation</build_depend>
+  <run_depend>actionlib</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>world_msgs</run_depend>
+  <run_depend>worldlib</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>rospy_message_converter</run_depend>
+  <run_depend>visualization_msgs</run_depend>
+  <run_depend>ar_track_alvar</run_depend>
+</package>
