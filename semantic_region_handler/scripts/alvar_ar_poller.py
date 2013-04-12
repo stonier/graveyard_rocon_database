@@ -58,7 +58,7 @@ if __name__ == '__main__':
     global viz_marker_pub
 
     rospy.init_node('alvar_ar_poller')
-    spatial_world_model_ns = '/spatial_world_model'
+    spatial_world_model_ns = 'spatial_world_model'
     concert_name = "concert"
     instance_tags = [concert_name,'landmarks']
     description_tags = [concert_name,'table','landmarks']

@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
     rospy.init_node('radius_region_handler')
 
-    spatial_world_model_ns = '/spatial_world_model'
+    spatial_world_model_ns = 'spatial_world_model'
     concert_name = "concert"
     instance_tags = [concert_name,'table']
     description_tags = [concert_name,'table','radius']

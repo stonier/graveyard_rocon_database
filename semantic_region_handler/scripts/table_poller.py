@@ -57,7 +57,7 @@ if __name__ == '__main__':
     global table_pub
 
     rospy.init_node('polling_table')
-    spatial_world_model_ns = '/spatial_world_model'
+    spatial_world_model_ns = 'spatial_world_model'
     concert_name = "concert"
     instance_tags = [concert_name,'table']
     description_tags = [concert_name,'table','radius']
