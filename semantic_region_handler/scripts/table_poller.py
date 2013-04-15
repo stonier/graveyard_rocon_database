@@ -64,7 +64,7 @@ if __name__ == '__main__':
     descriptor_ref = json.dumps({'type':'semantic_circle'}) 
 
     marker_pub = rospy.Publisher('table_marker',MarkerArray,latch=True)
-    table_pub = rospy.Publisher('table_pose_lists',TablePoseList,latch=True)
+    table_pub = rospy.Publisher('table_pose_list',TablePoseList,latch=True)
 
     sph = RegionPoller(spatial_world_model_ns,concert_name,instance_tags,description_tags,descriptor_ref,parse,publisher)
     rospy.loginfo('Initialized')
