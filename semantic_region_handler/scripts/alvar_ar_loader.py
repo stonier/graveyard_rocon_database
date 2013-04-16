@@ -20,6 +20,7 @@ def insert_marker(marker):
     req.region.marker.header.frame_id = marker['frame_id']
     req.region.marker.id = marker['id']
     req.region.marker.confidence = marker['confidence']
+    req.region.marker.pose.header.frame_id = marker['frame_id']
     req.region.marker.pose.pose = message_converter.convert_dictionary_to_ros_message('geometry_msgs/Pose',marker['pose'])
         
     return req
