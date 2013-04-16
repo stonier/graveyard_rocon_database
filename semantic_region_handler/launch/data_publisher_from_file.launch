@@ -5,5 +5,4 @@
     <node pkg="semantic_region_handler" type="table_publisher_from_file.py" name="table_publisher" output="screen">
          <param name="filename" type="string" value="$(find semantic_region_handler)/data/table_list.yaml" />
     </node>
-
 </launch>
