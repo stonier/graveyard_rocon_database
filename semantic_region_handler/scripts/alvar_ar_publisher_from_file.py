@@ -49,7 +49,7 @@ if __name__ == '__main__':
     rospy.init_node('ar_loader')
     filename = rospy.get_param('~filename')
     srv_name = 'add_ar_marker'
-    ar_pub = rospy.Publisher('global_ar_list',AlvarMarkers,latch=True)
+    ar_pub = rospy.Publisher('marker_pose_list',AlvarMarkers,latch=True)
 
     rl = RegionLoader(insert_marker,srv_name,filename,publish,True)
     rospy.loginfo('Initialized')
