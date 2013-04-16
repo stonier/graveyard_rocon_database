@@ -11,9 +11,11 @@ from semantic_region_handler.srv import *
 from rospy_message_converter import json_message_converter, message_converter
 
 class RegionLoader(object):
-    def __init__(self,insert_func,srv_name,filename):
+    def __init__(self,insert_func,srv_name,filename,publish,no_store):
         self.filename = filename
         self.insert = insert_func
+        self.publisher = publish
+        self.no_store = no_store
 
         self.add_srv = rospy.ServiceProxy(srv_name,AddSemanticRegion)
 
@@ -26,8 +28,10 @@ class RegionLoader(object):
 
     def spin(self):
         data= self.load_file(self.filename)
+        self.publisher(data)
 
-        for d in data:
-            req = self.insert(d)
-            resp = self.add_srv(req)
-            rospy.loginfo("%s is inserted as %s"%(req.name,resp.instance_id))
+        if not self.no_store:
+            for d in data:
+                req = self.insert(d)
+                resp = self.add_srv(req)
+                rospy.loginfo("%s is inserted as %s"%(req.name,resp.instance_id))

@@ -23,6 +23,18 @@ def insert_table(table):
     return req
 
 def publish(table):
+    table_list = TablePoseList()
+    
+    for t in table:
+        tp = TablePose()
+        tp.name = t['name']
+        tp.pose_cov_stamped.header.frame_id = t['frame_id']
+        tp.radius = float(t['radius'])
+        tp.pose_cov_stamped.pose.pose = message_converter.convert_dictionary_to_ros_message('geometry_msgs/Pose',t['pose'])
+        table_list.tables.append(tp)
+        
+    table_pub.publish(table_list)
+    
     return
 
 if __name__ == '__main__':
@@ -30,8 +42,12 @@ if __name__ == '__main__':
     rospy.init_node('table_loader')
     filename = rospy.get_param('~filename')
     srv_name = 'add_table_region'
-    rl = RegionLoader(insert_table,srv_name,filename,publish,False)
+    
+    table_pub = rospy.Publisher('table_pose_list',TablePoseList,latch=True)
+    
+    rl = RegionLoader(insert_table,srv_name,filename,publish,True)
     rospy.loginfo('Initialized')
     rl.spin()
+    rospy.spin()
     rospy.loginfo('Bye Bye')
 

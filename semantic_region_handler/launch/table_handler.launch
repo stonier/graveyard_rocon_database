@@ -1,4 +1,6 @@
 <launch>
-    <node pkg="semantic_region_handler" name="table_poller" type="table_poller.py"/>
+    <node pkg="semantic_region_handler" name="table_poller" type="table_poller.py">
+      <remap from="table_pose_list" to="semantic_map/table_pose_list"/>
+    </node>
     <node pkg="semantic_region_handler" name="table_handler" type="table_handler.py"/>
 </launch>

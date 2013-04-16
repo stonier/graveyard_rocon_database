@@ -1,0 +1,9 @@
+<launch>
+    <node pkg="semantic_region_handler" type="alvar_ar_publisher_from_file.py" name="alvar_ar_publisher" output="screen">
+         <param name="filename" type="string" value="$(find semantic_region_handler)/data/ar_list.yaml" />
+    </node>
+    <node pkg="semantic_region_handler" type="table_publisher_from_file.py" name="table_publisher" output="screen">
+         <param name="filename" type="string" value="$(find semantic_region_handler)/data/table_list.yaml" />
+    </node>
+
+</launch>
