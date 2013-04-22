@@ -20,9 +20,11 @@ class RegionPoller(object):
         # Setting actions to spaital world model handler
         self._action = {}
         self._action['woits'] = actionlib.SimpleActionClient(self.spatial_world_model_ns + '/world_object_instance_tag_search',WorldObjectInstanceTagSearchAction)
-        self._action['wodts'] = actionlib.SimpleActionClient(self.spatial_world_model_ns + '/world_object_description_tag_search',WorldObjectDescriptionTagSearchAction)
+        self._action['gwod'] = actionlib.SimpleActionClient(self.spatial_world_model_ns + '/get_world_object_description',GetWorldObjectDescriptionAction)
+#        self._action['wodts'] = actionlib.SimpleActionClient(self.spatial_world_model_ns + '/world_object_description_tag_search',WorldObjectDescriptionTagSearchAction)
         self._action['woits'].wait_for_server()
-        self._action['wodts'].wait_for_server()
+        self._action['gwod'].wait_for_server()
+#        self._action['wodts'].wait_for_server()
         rospy.loginfo('World Model Handler Ready')
 
         self.publisher = publisher
@@ -38,6 +40,14 @@ class RegionPoller(object):
 
 
     def get_world_object_description(self,description_id):
+        self._action['gwod'].send_goal_and_wait(GetWorldObjectDescriptionGoal(description_id))
+        resp = self._action['gwod'].get_result()
+
+        if not resp.exists:
+            rospy.logwarn("Descriptions with id [%s] does not exist"%description_id)
+
+        return resp.description
+        """
         self._action['wodts'].send_goal_and_wait(WorldObjectInstanceTagSearchGoal(self.instance_tags))
         resp = self._action['wodts'].get_result()
 
@@ -48,6 +58,7 @@ class RegionPoller(object):
         description = descriptions[0]
 
         return description
+        """
 
     def get_region_instances(self):
         self._action['woits'].send_goal_and_wait(WorldObjectInstanceTagSearchGoal(self.instance_tags))
