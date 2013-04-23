@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 import rospy
 import json
+import tf
 
 from semantic_region_handler import RegionPoller
 from semantic_region_handler.msg import *
 from visualization_msgs.msg import *
 
 def parse(instances,region_poller):
+    global tf_pub
+
     # TablePostList preparation
     table_pose_list = TablePoseList()
     # Markers
@@ -21,17 +24,21 @@ def parse(instances,region_poller):
         table.radius = region.radius
         table_pose_list.tables.append(table)
 
+        position = (i.pose.pose.pose.position.x,i.pose.pose.pose.position.y,i.pose.pose.pose.position.z)
+        orientation = (i.pose.pose.pose.orientation.x,i.pose.pose.pose.orientation.y,i.pose.pose.pose.orientation.z,i.pose.pose.pose.orientation.w)
+        tf_pub.sendTransform(position,orientation,rospy.Time.now(),str(i.name) + '_' + str(i.instance_id),'map')
+
         marker = Marker()
         marker.id = marker_id
         marker.header = i.pose.header
         marker.header.stamp = rospy.Time.now()
-        marker.type = Marker.SPHERE
+        marker.type = Marker.CYLINDER
         marker.ns = region_poller.concert_name
         marker.action = Marker.ADD
         marker.lifetime = rospy.Duration.from_sec(1)
         marker.pose = i.pose.pose.pose
-        marker.scale.x = table.radius
-        marker.scale.y = table.radius
+        marker.scale.x = table.radius * 2
+        marker.scale.y = table.radius * 2  
         marker.scale.z = 0.1
         marker.color.r = 0
         marker.color.g = 0
@@ -55,6 +62,7 @@ def publisher(lists):
 if __name__ == '__main__':
     global marker_pub
     global table_pub
+    global tf_pub
 
     rospy.init_node('polling_table')
     spatial_world_model_ns = 'spatial_world_model'
@@ -65,6 +73,7 @@ if __name__ == '__main__':
 
     marker_pub = rospy.Publisher('table_marker',MarkerArray,latch=True)
     table_pub = rospy.Publisher('table_pose_list',TablePoseList,latch=True)
+    tf_pub = tf.TransformBroadcaster()
 
     sph = RegionPoller(spatial_world_model_ns,concert_name,instance_tags,description_tags,descriptor_ref,parse,publisher)
     rospy.loginfo('Initialized')
