@@ -37,13 +37,13 @@ def parse(instances,region_poller):
         marker.action = Marker.ADD
         marker.lifetime = rospy.Duration.from_sec(1)
         marker.pose = ar_marker.pose.pose
-        marker.scale.x = 0.1 
-        marker.scale.y = 0.1
-        marker.scale.z = 0.1
+        marker.scale.x = 0.5
+        marker.scale.y = 0.5
+        marker.scale.z = 0.5
         marker.color.r = 0
         marker.color.g = 1.0
         marker.color.b = 0.0
-        marker.color.a = 1.0
+        marker.color.a = 0.8
 
         marker_list.markers.append(marker)
 
