@@ -1,8 +1,12 @@
 <launch>
+    <arg name="host" default="localhost"/>
+    <arg name="user" default="world"/>
+    <arg name="password" default="model"/>
+
     <include file="$(find world_listeners)/launch/spatial_world_model.launch">
-	<arg name="host" value="localhost"/>
-	<arg name="user" value="world"/>
-	<arg name="password" value="model"/>
+	<arg name="host" value="$(arg host)"/>
+	<arg name="user" value="$(arg user)"/>
+	<arg name="password" value="$(arg password)"/>
     </include>
     <include file="$(find semantic_region_handler)/launch/table_handler.launch"/>
     <include file="$(find semantic_region_handler)/launch/ar_handler.launch"/>
