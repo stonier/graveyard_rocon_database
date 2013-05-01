@@ -52,7 +52,7 @@ def publish(table):
         marker.type = Marker.CYLINDER
         marker.ns = "concert"
         marker.action = Marker.ADD
-        marker.lifetime = rospy.Duration.from_sec(3)
+        marker.lifetime = rospy.Duration.from_sec(0)
         marker.pose = tp.pose_cov_stamped.pose.pose
         marker.scale.x = tp.radius * 2
         marker.scale.y = tp.radius * 2  
