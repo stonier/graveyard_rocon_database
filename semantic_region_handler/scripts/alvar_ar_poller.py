@@ -35,7 +35,7 @@ def parse(instances,region_poller):
         marker.type = Marker.ARROW
         marker.ns = region_poller.concert_name
         marker.action = Marker.ADD
-        marker.lifetime = rospy.Duration.from_sec(1)
+        marker.lifetime = rospy.Duration.from_sec(3)
         marker.pose = ar_marker.pose.pose
         marker.scale.x = 0.2
         marker.scale.y = 0.2
