@@ -1,6 +1,6 @@
 <launch>
     <node pkg="semantic_region_handler" name="alvar_ar_poller" type="alvar_ar_poller.py">
-      <remap from="ar_marker_list" to="semantic_map/ar_marker_list"/>
+      <remap from="marker_pose_list" to="semantic_map/marker_pose_list"/>
     </node>
     <node pkg="semantic_region_handler" name="alvar_ar_handler" type="alvar_ar_handler.py"/>
 </launch>

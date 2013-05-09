@@ -72,7 +72,7 @@ if __name__ == '__main__':
     description_tags = [concert_name,'table','landmarks']
     descriptor_ref = json.dumps({'type':'landmarks'}) 
 
-    ar_marker_pub = rospy.Publisher('ar_marker_list',AlvarMarkers,latch=True)
+    ar_marker_pub = rospy.Publisher('marker_pose_list',AlvarMarkers,latch=True)
     viz_marker_pub = rospy.Publisher('viz_ar_list',MarkerArray,latch=True)
     tf_pub = tf.TransformBroadcaster()
 
