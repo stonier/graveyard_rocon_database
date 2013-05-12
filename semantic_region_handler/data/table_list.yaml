@@ -1,11 +1,11 @@
 -  
   name: table1
   frame_id: map
-  radius: 0.225
+  radius: 0.547
   pose:
       position:
-          x: 3.5
-          y: 1.5
+          x: 3.8
+          y: 2.21
           z: 0
       orientation:
           x: 0
@@ -16,11 +16,11 @@
 -
   name: table2
   frame_id: map
-  radius: 0.225
+  radius: 0.483
   pose:
     position:
-      x: 0.7
-      y: 0.05
+      x: 1.33
+      y: 2.25
       z: 0
     orientation:
       x: 0
@@ -30,11 +30,11 @@
 -
   name: table3
   frame_id: map
-  radius: 0.5
+  radius: 0.252
   pose:
     position:
-      x: 3
-      y: 0
+      x: 1.91
+      y: 4.06
       z: 0
     orientation:
       x: 0
@@ -47,13 +47,12 @@
   radius: 0.05
   pose:
     position:
-      x: 2.6
-      y: 2.5
-#      y: 0.0
+      x: 5.36
+      y: 0.74
       z: 0
     orientation:
       x: 0
       y: 0
-      z:  0.707106781186548
-      w: -0.707106781186547
+      z: 1
+      w: 0
 
