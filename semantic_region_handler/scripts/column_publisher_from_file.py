@@ -14,7 +14,7 @@ from semantic_region_handler.msg import *
 from rospy_message_converter import json_message_converter, message_converter
 from semantic_region_handler import RegionLoader
 from visualization_msgs.msg import *
-from virtual_sensor.msg import *
+from yocs_msgs.msg import *
 
 def insert_column(column):
     req = AddSemanticRegionRequest()

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(semantic_region_handler)
 
-find_package(catkin REQUIRED COMPONENTS actionlib rospy geometry_msgs world_msgs worldlib ar_track_alvar message_generation)
+find_package(catkin REQUIRED COMPONENTS actionlib rospy geometry_msgs yocs_msgs world_msgs worldlib ar_track_alvar message_generation)
 
 catkin_python_setup()
 
