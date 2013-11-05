@@ -42,7 +42,16 @@ catkin_package(
 )
 
 install(PROGRAMS
-  scripts/circle_semantic_handler.py
+  scripts/alvar_ar_handler.py
+  scripts/alvar_ar_poller.py
+  scripts/column_publisher_from_file.py
+  scripts/table_loader.py
+  scripts/table_publisher_from_file.py
+  scripts/alvar_ar_loader.py
+  scripts/alvar_ar_publisher_from_file.py
+  scripts/table_handler.py
+  scripts/table_poller.py
+  scripts/wall_publisher_from_file.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
